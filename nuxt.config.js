@@ -36,6 +36,14 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+
+    [
+      'nuxt-vuex-localstorage',
+      {
+        mode: 'debug',
+        localStorage: ['user'],
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -45,5 +53,8 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: ['nuxt-vuex-localstorage'],
+    extend(config, ctx) {},
+  },
 }
